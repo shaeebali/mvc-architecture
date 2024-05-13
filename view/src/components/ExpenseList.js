@@ -9,13 +9,15 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 // import user action function from utils dir
+import { deleteExpense } from '../utils';
 
 const ExpenseList = ({ expenses, setExpenses, setId }) => {
   const [options, setOptions] = useState();
 
   const handleDelete = async (_id) => {
     // send user action to controller
-    
+    await deleteExpense(_id);
+    // update view from model w/ controller
     setExpenses(expenses.filter((expense) => expense.expense_id !== _id));
   };
 
