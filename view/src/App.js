@@ -7,6 +7,7 @@ import { VictoryPie, VictoryTooltip } from 'victory';
 import Modal from './components/Modal';
 import ExpenseList from './components/ExpenseList';
 // import functions to interact with controller.
+import { fetchExpense, expenseByCategory } from './utils';
 import { expenseByCategory } from './utils';
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
   const [selectDate, setSelectDate] = useState(new Date());
   useEffect(() => {
     // update view from model w/ controller
+    fetchExpense().then((res) => setExpenses(res));
   }, []);
 
   return (
