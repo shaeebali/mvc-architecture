@@ -40,7 +40,7 @@ const LogExpense = ({ handleClose, _id, refreshExpenses }) => {
     }
   }, [_id]);
 
-  const expenseListRefresh = async (res, date) => {
+  const expenseListRefresh = async (res) => {
     if (res) {
       return setErr(res);
     }
